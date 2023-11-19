@@ -1,0 +1,20 @@
+logger:
+  baud_rate: 0 # disable serial logging if you're using the standard TX/RX pins for your serial peripheral
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/hsync/ElliEnergyMeterModbusSniffer.git
+
+# requires uart to be set up:
+uart:
+  id: uart_bus
+  tx_pin: GPIO15
+  rx_pin: GPIO13
+  baud_rate: 19200
+  parity: EVEN 
+
+sensor:
+  - platform: elli_modbus_sensor
+    name: Elli_Wallbox_Energy
+
